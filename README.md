@@ -32,8 +32,8 @@ Make sure you have [Node.js](https://nodejs.org/) and npm (or yarn, pnpm, bun) i
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/nicholasadamou/coolregex.fyi.git
-   cd coolregex.fyi
+   git clone https://github.com/nicholasadamou/coolregex.git
+   cd coolregex
    ```
 
 2. Install dependencies:
