@@ -1,13 +1,5 @@
 "use client";
 
-import {
-  Calculator,
-  Calendar,
-  CreditCard,
-  Settings,
-  Smile,
-  User,
-} from "lucide-react";
 import * as React from "react";
 
 import {
@@ -17,8 +9,6 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
-  CommandShortcut,
 } from "@/components/ui/command";
 import { RegexInfo } from "@/lib/regex_info";
 import { useEffect, useState } from "react";
@@ -110,14 +100,6 @@ export const CommandBar: React.FC<CommandBarProps> = ({
               );
             })}
           </CommandGroup>
-          {/* <CommandSeparator />
-          <CommandGroup heading="Settings">
-            <CommandItem>
-              <Settings className="mr-2 h-4 w-4" />
-              <span>Settings</span>
-              <CommandShortcut>⌘S</CommandShortcut>
-            </CommandItem>
-          </CommandGroup> */}
         </CommandList>
       </CommandDialog>
     </>
