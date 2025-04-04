@@ -91,11 +91,6 @@ graph TD
     C --> E[TestSection]
     C --> F[CardHeader]
     B --> G[CommandDialog/UI]
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#bbf,stroke:#333,stroke-width:1px
-    style C fill:#bbf,stroke:#333,stroke-width:1px
-    style D fill:#dfd,stroke:#333,stroke-width:1px
 ```
 
 ### Data Flow
@@ -108,13 +103,6 @@ flowchart LR
     D -- regex pattern --> E[RegexHighlighter]
     D -- regex pattern --> F[TestSection]
     F -- test results --> D
-
-    style A fill:#f9d,stroke:#333,stroke-width:1px
-    style B fill:#bbf,stroke:#333,stroke-width:1px
-    style C fill:#f9f,stroke:#333,stroke-width:1px
-    style D fill:#bbf,stroke:#333,stroke-width:1px
-    style E fill:#dfd,stroke:#333,stroke-width:1px
-    style F fill:#fdd,stroke:#333,stroke-width:1px
 ```
 
 ### Component Interaction
