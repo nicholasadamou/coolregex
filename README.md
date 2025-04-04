@@ -14,6 +14,7 @@ Welcome to **coolregex.fyi**, a powerful tool for working with regular expressio
 
 -  [Getting Started](#getting-started)
 -  [Features](#features)
+-  [Architecture](#architecture)
 -  [Development](#development)
 -  [Learn More](#learn-more)
 -  [Deploy on Vercel](#deploy-on-vercel)
@@ -75,6 +76,78 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 -  **Regex Testing**: Easily test and debug regular expressions.
 -  **Real-time Updates**: See changes in real-time as you edit your regex.
 -  **Custom Fonts**: Optimized loading of Google Fonts for better performance.
+-  **Syntax Highlighting**: Colorful highlighting of regex components for better readability.
+-  **Command Bar**: Quick search and navigation through regex patterns.
+
+## Architecture
+
+### Component Hierarchy
+
+```mermaid
+graph TD
+    A[app/page.tsx] --> B[CommandBar]
+    A --> C[RegexCard]
+    C --> D[RegexHighlighter]
+    C --> E[TestSection]
+    C --> F[CardHeader]
+    B --> G[CommandDialog/UI]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:1px
+    style C fill:#bbf,stroke:#333,stroke-width:1px
+    style D fill:#dfd,stroke:#333,stroke-width:1px
+```
+
+### Data Flow
+
+```mermaid
+flowchart LR
+    A[User Input] --> B[CommandBar]
+    B -- search term --> C[app/page.tsx]
+    C -- filtered regex --> D[RegexCard]
+    D -- regex pattern --> E[RegexHighlighter]
+    D -- regex pattern --> F[TestSection]
+    F -- test results --> D
+
+    style A fill:#f9d,stroke:#333,stroke-width:1px
+    style B fill:#bbf,stroke:#333,stroke-width:1px
+    style C fill:#f9f,stroke:#333,stroke-width:1px
+    style D fill:#bbf,stroke:#333,stroke-width:1px
+    style E fill:#dfd,stroke:#333,stroke-width:1px
+    style F fill:#fdd,stroke:#333,stroke-width:1px
+```
+
+### Component Interaction
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant CommandBar
+    participant Page as app/page.tsx
+    participant RegexCard
+    participant RegexHighlighter
+
+    User->>CommandBar: Search for regex (⌘K)
+    CommandBar->>Page: Update search term
+    Page->>RegexCard: Filter and render cards
+    RegexCard->>RegexHighlighter: Render highlighted regex
+    User->>RegexCard: Click test button
+    RegexCard->>RegexCard: Toggle test section
+    User->>RegexCard: Enter test string
+    RegexCard->>RegexCard: Validate against regex
+    RegexCard->>User: Show match result
+```
+
+### Core Components
+
+#### RegexHighlighter
+The `RegexHighlighter` component provides syntax highlighting for regular expressions, making them easier to read and understand. It parses the regex string and applies different styles to different parts of the regex (character classes, quantifiers, groups, etc.).
+
+#### CommandBar
+The `CommandBar` component provides a searchable interface for finding specific regex patterns. It can be activated with keyboard shortcuts (⌘K) and filters the available regex patterns based on user input.
+
+#### RegexCard
+The `RegexCard` component displays a regex pattern with its title, description, and provides functionality to test the regex against a user-provided string. It also allows copying the regex to the clipboard.
 
 ## Learn More
 
