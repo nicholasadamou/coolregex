@@ -10,7 +10,7 @@
 
 Welcome to **coolregex.fyi**, a powerful tool for working with regular expressions, built using [Next.js](https://nextjs.org/). This project was bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-📖 Read the full article on my website [nicholasadamou.com/projects/coolregex](https://nicholasadamou.com/projects/coolregex).
+📖 Read the full case study on my website [nicholasadamou.com/projects/coolregex](https://nicholasadamou.com/projects/coolregex).
 
 ## Table of Contents
 
